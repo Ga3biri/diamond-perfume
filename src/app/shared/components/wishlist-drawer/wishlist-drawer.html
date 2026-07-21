@@ -1,0 +1,32 @@
+@if(layout.wishlistOpened()){
+
+<div class="drawer-backdrop"
+     (click)="layout.closeWishlist()">
+
+    <div class="drawer"
+         (click)="$event.stopPropagation()">
+
+        <div class="drawer-header">
+
+            <h3>Wishlist</h3>
+
+            <button
+                (click)="layout.closeWishlist()">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+        <div class="drawer-body">
+
+            <p>No products yet.</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+}

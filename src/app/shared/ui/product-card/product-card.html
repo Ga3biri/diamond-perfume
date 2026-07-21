@@ -1,0 +1,64 @@
+<div class="card">
+
+    @if(product().discount){
+
+        <span class="discount">
+
+            -{{product().discount}}%
+
+        </span>
+
+    }
+
+    <a
+        [routerLink]="['/product',product().id]">
+
+        <img
+            [src]="product().image"
+            [alt]="product().name">
+
+    </a>
+
+    <div class="body">
+
+        <small>
+
+            {{product().brand}}
+
+        </small>
+
+        <h4>
+
+            {{product().name}}
+
+        </h4>
+
+        <div class="price">
+
+            <strong>
+
+                {{product().price}} EGP
+
+            </strong>
+
+            @if(product().oldPrice){
+
+                <span>
+
+                    {{product().oldPrice}} EGP
+
+                </span>
+
+            }
+
+        </div>
+
+        <button>
+
+            Add To Cart
+
+        </button>
+
+    </div>
+
+</div>

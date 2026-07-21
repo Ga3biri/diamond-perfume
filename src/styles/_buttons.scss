@@ -1,0 +1,45 @@
+.btn{
+
+    height:50px;
+
+    padding:0 28px;
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--secondary);
+
+}
+
+.btn-outline{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+}
+
+.btn-outline:hover{
+
+    border-color:var(--secondary);
+
+    color:var(--secondary);
+
+}

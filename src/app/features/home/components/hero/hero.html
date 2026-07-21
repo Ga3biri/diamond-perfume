@@ -1,0 +1,29 @@
+<section class="hero">
+
+  <div class="container-custom hero-content">
+
+    <div class="hero-text">
+
+      <span class="subtitle">
+        {{ hero().subtitle }}
+      </span>
+
+      <h1>
+        {{ hero().title }}
+      </h1>
+
+      <button>
+        {{ hero().button }}
+      </button>
+
+    </div>
+
+    <div class="hero-image">
+
+     <img [src]="hero().image" [alt]="hero().title">
+
+    </div>
+
+  </div>
+
+</section>

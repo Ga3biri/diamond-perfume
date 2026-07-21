@@ -1,0 +1,50 @@
+@if(layout.mobileMenuOpened()){
+
+<div
+    class="mobile-backdrop"
+    (click)="layout.closeMobileMenu()">
+
+    <aside
+        class="mobile-menu"
+        (click)="$event.stopPropagation()">
+
+        <div class="mobile-header">
+
+            <img
+                src="/images/logo.png"
+                alt="Logo">
+
+            <button
+                (click)="layout.closeMobileMenu()">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+        <ul>
+
+            @for(item of menu;track item.link){
+
+                <li>
+
+                    <a
+                        [routerLink]="item.link"
+                        (click)="layout.closeMobileMenu()">
+
+                        {{item.title}}
+
+                    </a>
+
+                </li>
+
+            }
+
+        </ul>
+
+    </aside>
+
+</div>
+
+}

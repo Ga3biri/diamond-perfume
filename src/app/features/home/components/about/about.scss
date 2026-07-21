@@ -1,0 +1,67 @@
+.about{
+
+    padding:120px 0;
+
+}
+
+.about img{
+
+    width:100%;
+
+    border-radius:20px;
+
+}
+
+.subtitle{
+
+    color:#b58a2f;
+
+    letter-spacing:3px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+h2{
+
+    margin:20px 0;
+
+    font-size:48px;
+
+    font-weight:700;
+
+}
+
+p{
+
+    line-height:2;
+
+    color:#666;
+
+    margin-bottom:35px;
+
+}
+
+button{
+
+    width:180px;
+
+    height:50px;
+
+    border:none;
+
+    background:#111;
+
+    color:#fff;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#b58a2f;
+
+}

@@ -1,0 +1,39 @@
+<section class="categories">
+
+    <div class="container-custom">
+
+        <div class="row g-4">
+
+            @for(category of categories(); track category.id){
+
+                <div class="col-lg-4">
+
+                    <div class="category-card">
+
+                        <img
+                            [src]="category.image"
+                            [alt]="category.name">
+
+                        <div class="overlay">
+
+                            <h3>{{category.name}}</h3>
+
+                            <button>
+
+                                Shop Now
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>

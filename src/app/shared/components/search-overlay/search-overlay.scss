@@ -1,0 +1,83 @@
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    z-index:3000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding-top:120px;
+
+}
+
+.search-box{
+
+    width:min(700px,90vw);
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    position:relative;
+
+}
+
+.close{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    border:none;
+
+    background:none;
+
+    font-size:22px;
+
+}
+
+.input-group{
+
+    display:flex;
+
+    margin-top:30px;
+
+}
+
+.input-group input{
+
+    flex:1;
+
+    height:56px;
+
+    border:1px solid #ddd;
+
+    padding:0 18px;
+
+    outline:none;
+
+}
+
+.input-group button{
+
+    width:70px;
+
+    border:none;
+
+    background:#111;
+
+    color:#fff;
+
+}

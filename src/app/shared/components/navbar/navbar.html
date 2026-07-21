@@ -1,0 +1,123 @@
+<nav>
+
+    <div class="container-custom navbar">
+
+        <div class="left">
+
+            <button
+                class="mobile-toggle"
+                (click)="layout.openMobileMenu()">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <a
+                routerLink="/"
+                class="logo">
+
+                <img
+                    src="/images/logo.png"
+                    alt="Diamond Perfumes">
+
+            </a>
+
+        </div>
+
+        <div class="center">
+
+            <ul class="menu">
+
+    @for(item of menu();track item.link){
+
+        <li class="menu-item">
+
+            <a [routerLink]="item.link">
+
+                {{item.title}}
+
+                @if(item.children){
+
+                    <i class="bi bi-chevron-down"></i>
+
+                }
+
+            </a>
+
+            @if(item.children){
+
+                <div class="dropdown">
+
+                    @for(child of item.children;track child.link){
+
+                        <a [routerLink]="child.link">
+
+                            {{child.title}}
+
+                        </a>
+
+                    }
+
+                </div>
+
+            }
+
+        </li>
+
+    }
+
+</ul>
+
+        </div>
+
+        <div class="actions">
+
+            <button
+                class="icon-btn"
+                (click)="layout.openSearch()">
+
+                <i class="bi bi-search"></i>
+
+            </button>
+
+            <button
+                class="icon-btn"
+                (click)="layout.openWishlist()">
+
+                <i class="bi bi-heart"></i>
+
+                <span class="badge">
+
+                    0
+
+                </span>
+
+            </button>
+
+            <button
+                class="icon-btn">
+
+                <i class="bi bi-person"></i>
+
+            </button>
+
+            <button
+                class="icon-btn"
+                (click)="layout.openCart()">
+
+                <i class="bi bi-bag"></i>
+
+                <span class="badge">
+
+                    0
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>

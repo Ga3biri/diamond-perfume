@@ -1,0 +1,32 @@
+@if(layout.cartOpened()){
+
+<div class="drawer-backdrop"
+     (click)="layout.closeCart()">
+
+    <div class="drawer"
+         (click)="$event.stopPropagation()">
+
+        <div class="drawer-header">
+
+            <h3>Shopping Cart</h3>
+
+            <button
+                (click)="layout.closeCart()">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+        <div class="drawer-body">
+
+            <p>Your cart is empty.</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+}

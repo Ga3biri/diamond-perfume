@@ -1,0 +1,29 @@
+<section class="brands">
+
+    <div class="container-custom">
+
+        <h2>
+
+            Shop By Brand
+
+        </h2>
+
+        <div class="brands-grid">
+
+            @for(brand of brands();track brand.id){
+
+                <div class="brand-card">
+
+                    <img
+                        [src]="brand.image"
+                        [alt]="brand.name">
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>

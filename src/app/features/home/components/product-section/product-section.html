@@ -1,0 +1,25 @@
+<section class="section">
+
+    <div class="container-custom">
+
+        <h2>
+
+            {{title()}}
+
+        </h2>
+
+        <div class="grid">
+
+            @for(item of products(); track item.id){
+
+                <app-product-card
+                    [product]="item">
+                </app-product-card>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>

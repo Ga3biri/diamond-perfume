@@ -1,0 +1,48 @@
+<section class="faq">
+
+    <div class="container-custom">
+
+        <h2>
+
+            Frequently Asked Questions
+
+        </h2>
+
+        @for(item of items();track item.question){
+
+            <div class="faq-item">
+
+                <button
+                    (click)="toggle($index)">
+
+                    <span>
+
+                        {{item.question}}
+
+                    </span>
+
+                    <i
+                        class="bi"
+                        [class.bi-plus]="opened()!==$index"
+                        [class.bi-dash]="opened()===$index">
+                    </i>
+
+                </button>
+
+                @if(opened()===$index){
+
+                    <div class="answer">
+
+                        {{item.answer}}
+
+                    </div>
+
+                }
+
+            </div>
+
+        }
+
+    </div>
+
+</section>
