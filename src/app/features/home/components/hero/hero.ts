@@ -11,7 +11,7 @@ export class Hero {
     title: 'Luxury Perfumes',
     subtitle: 'Discover your signature scent',
     button: 'Shop Now',
-image: 'images/products/1.webp'
+image: '/images/products/1.webp'
   });
 
 }
