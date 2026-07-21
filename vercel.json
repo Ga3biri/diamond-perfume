@@ -1,7 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/diamond-perfumes/browser",
+  "outputDirectory": "dist/el-feky-perfumes/browser",
   "installCommand": "npm install",
   "framework": "angular"
 }
-

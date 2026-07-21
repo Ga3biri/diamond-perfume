@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "diamond-perfumes": {
+    "el-feky-perfumes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -68,10 +68,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "diamond-perfumes:build:production"
+              "buildTarget": "el-feky-perfumes:build:production"
             },
             "development": {
-              "buildTarget": "diamond-perfumes:build:development"
+              "buildTarget": "el-feky-perfumes:build:development"
             }
           },
           "defaultConfiguration": "development"
