@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { PRODUCTS } from '../../../../../core/constants/products';
+import { CartService } from '../../../../core/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,6 +14,7 @@ import { PRODUCTS } from '../../../../../core/constants/products';
 export class ProductDetails {
 
   private route = inject(ActivatedRoute);
+  private cartService = inject(CartService);
 
   readonly Math = Math;
   quantity = signal(1);
@@ -32,6 +34,13 @@ export class ProductDetails {
 
   decreaseQty() {
     this.quantity.update(q => Math.max(1, q - 1));
+  }
+
+  addToCart() {
+    const p = this.product();
+    if (p) {
+      this.cartService.addItem(p, this.quantity());
+    }
   }
 
 }

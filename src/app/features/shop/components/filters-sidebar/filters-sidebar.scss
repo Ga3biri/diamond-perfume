@@ -1,0 +1,20 @@
+.filters-sidebar {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+}
+
+.filter-section {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.filter-section:last-of-type {
+  border-bottom: none;
+}
+
+h4 {
+  font-size: 16px;
+}

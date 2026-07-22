@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Product } from '../../../../shared/models/product.model';
+import { CartService } from '../../../../core/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,4 +11,10 @@ import { Product } from '../../../../shared/models/product.model';
 })
 export class ProductCard {
   product = input.required<Product>();
+  private cartService = inject(CartService);
+  readonly Math = Math;
+
+  addToCart() {
+    this.cartService.addItem(this.product(), 1);
+  }
 }
