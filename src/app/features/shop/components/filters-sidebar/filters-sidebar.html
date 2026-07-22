@@ -1,1 +1,53 @@
-<p>filters-sidebar works!</p>
+<aside class="filters-sidebar">
+
+  <div class="filter-section">
+    <h4>Category</h4>
+    <div class="filter-options">
+      @for(cat of categories; track cat){
+        <label class="filter-label">
+          <input
+            type="checkbox"
+            [checked]="selectedCategories().includes(cat)"
+            (change)="toggleCategory(cat)">
+          <span>{{ cat }}</span>
+        </label>
+      }
+    </div>
+
+  <div class="filter-section">
+    <h4>Price Range</h4>
+    <div class="price-inputs">
+      <input
+        type="number"
+        placeholder="Min"
+        class="price-input"
+        [value]="minPrice()"
+        (input)="minPrice.set(+$any($event.target).value)">
+      <span>—</span>
+      <input
+        type="number"
+        placeholder="Max"
+        class="price-input"
+        [value]="maxPrice()"
+        (input)="maxPrice.set(+$any($event.target).value)">
+    </div>
+
+  <div class="filter-section">
+    <h4>Sort By</h4>
+    <select
+      class="sort-select"
+      [value]="sortBy()"
+      (change)="sortBy.set($any($event.target).value)">
+      <option value="default">Default</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="rating">Top Rated</option>
+      <option value="name">Name A–Z</option>
+    </select>
+  </div>
+
+  <button class="clear-btn" (click)="clearFilters()">
+    Clear Filters
+  </button>
+
+</aside>

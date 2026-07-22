@@ -1,1 +1,51 @@
-<p>shop works!</p>
+<div class="shop-page">
+
+  <div class="page-header">
+    <div class="container-custom">
+      <h1>Shop Collection</h1>
+      <p>Explore our premium fragrance collection</p>
+    </div>
+
+  <div class="container-custom">
+    <div class="shop-layout">
+
+      <aside class="sidebar">
+        <app-filters-sidebar
+          (filtersChanged)="onFiltersChanged($event)"
+        />
+      </aside>
+
+      <main class="main-content">
+
+        <div class="toolbar">
+          <p class="result-count">
+            Showing {{ filteredProducts().length }} of {{ allProducts().length }} products
+          </p>
+
+          <button class="mobile-filter-toggle" (click)="showMobileFilters.set(true)">
+            <i class="bi bi-funnel"></i> Filters
+          </button>
+        </div>
+
+        <app-products-grid [products]="filteredProducts()" />
+
+      </main>
+
+    </div>
+
+  @if(showMobileFilters()){
+    <div class="mobile-overlay" (click)="showMobileFilters.set(false)">
+      <div class="mobile-filters" (click)="$event.stopPropagation()">
+        <div class="mobile-filters-header">
+          <h3>Filters</h3>
+          <button (click)="showMobileFilters.set(false)">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <app-filters-sidebar
+          (filtersChanged)="onFiltersChanged($event)"
+        />
+      </div>
+  }
+
+</div>

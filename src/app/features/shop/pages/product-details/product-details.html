@@ -1,1 +1,90 @@
-<p>product-details works!</p>
+<div class="product-details-page">
+
+  @if(product(); as p){
+
+    <div class="container-custom">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <a routerLink="/shop">Shop</a>
+        <span>/</span>
+        <span class="current">{{ p.name }}</span>
+      </nav>
+
+      <div class="details-layout">
+
+        <!-- Image -->
+        <div class="image-section">
+          @if(p.discount){
+            <span class="discount-badge">-{{ p.discount }}%</span>
+          }
+          <img [src]="p.image" [alt]="p.name">
+        </div>
+
+        <!-- Info -->
+        <div class="info-section">
+
+          <small class="brand">{{ p.brand }}</small>
+          <h1>{{ p.name }}</h1>
+
+          <div class="rating-row">
+            @for(star of [1,2,3,4,5]; track star){
+              <i
+                class="bi"
+                [class.bi-star-fill]="star <= Math.round(p.rating ?? 0)"
+                [class.bi-star]="star > Math.round(p.rating ?? 0)"
+              ></i>
+            }
+            <span>({{ p.reviews }} reviews)</span>
+          </div>
+
+          <div class="pricing">
+            <span class="current-price">{{ p.price }} EGP</span>
+            @if(p.oldPrice){
+              <span class="old-price">{{ p.oldPrice }} EGP</span>
+              <span class="save">Save {{ p.oldPrice - (p.price ?? 0) }} EGP</span>
+            }
+          </div>
+
+          <p class="description">
+            {{ p.description || 'Experience the luxury of ' + p.name + ' by ' + p.brand + '. A captivating fragrance that leaves a lasting impression. Perfect for any occasion.' }}
+          </p>
+
+          <div class="actions">
+            <div class="quantity">
+              <button (click)="decreaseQty()">−</button>
+              <span>{{ quantity() }}</span>
+              <button (click)="increaseQty()">+</button>
+            </div>
+
+            <button class="add-to-cart-btn">Add to Cart — {{ (p.price ?? 0) * quantity() }} EGP</button>
+          </div>
+
+          <div class="meta">
+            <div class="meta-item">
+              <i class="bi bi-box-seam"></i>
+              <span>{{ p.inStock ? 'In Stock' : 'Out of Stock' }}</span>
+            </div>
+            <div class="meta-item">
+              <i class="bi bi-truck"></i>
+              <span>Free shipping on orders over 1000 EGP</span>
+            </div>
+            <div class="meta-item">
+              <i class="bi bi-arrow-repeat"></i>
+              <span>Easy 14-day returns</span>
+            </div>
+
+        </div>
+
+    </div>
+
+  } @else {
+    <div class="not-found">
+      <h2>Product not found</h2>
+      <a routerLink="/shop" class="back-link">Back to Shop</a>
+    </div>
+  }
+
+</div>
