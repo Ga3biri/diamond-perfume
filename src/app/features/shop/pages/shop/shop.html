@@ -19,7 +19,7 @@
 
         <div class="toolbar">
           <p class="result-count">
-            Showing {{ filteredProducts().length }} of {{ allProducts().length }} products
+            Showing {{ filteredProducts().length }} of {{ allProducts.length }} products
           </p>
 
           <button class="mobile-filter-toggle" (click)="showMobileFilters.set(true)">
@@ -33,19 +33,19 @@
 
     </div>
 
-  @if(showMobileFilters()){
-    <div class="mobile-overlay" (click)="showMobileFilters.set(false)">
-      <div class="mobile-filters" (click)="$event.stopPropagation()">
-        <div class="mobile-filters-header">
-          <h3>Filters</h3>
-          <button (click)="showMobileFilters.set(false)">
-            <i class="bi bi-x-lg"></i>
-          </button>
+    @if(showMobileFilters()){
+      <div class="mobile-overlay" (click)="showMobileFilters.set(false)">
+        <div class="mobile-filters" (click)="$event.stopPropagation()">
+          <div class="mobile-filters-header">
+            <h3>Filters</h3>
+            <button (click)="showMobileFilters.set(false)">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <app-filters-sidebar
+            (filtersChanged)="onFiltersChanged($event)"
+          />
         </div>
-        <app-filters-sidebar
-          (filtersChanged)="onFiltersChanged($event)"
-        />
-      </div>
-  }
+    }
 
-</div>
+  </div>

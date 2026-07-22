@@ -1,4 +1,4 @@
-<div class="product-details-page">
+﻿<div class="product-details-page">
 
   @if(product(); as p){
 
@@ -37,7 +37,7 @@
                 [class.bi-star]="star > Math.round(p.rating ?? 0)"
               ></i>
             }
-            <span>({{ p.reviews }} reviews)</span>
+<span>({{ p.reviews }} reviews)</span>
           </div>
 
           <div class="pricing">
@@ -54,12 +54,12 @@
 
           <div class="actions">
             <div class="quantity">
-              <button (click)="decreaseQty()">−</button>
+              <button (click)="decreaseQty()">-</button>
               <span>{{ quantity() }}</span>
               <button (click)="increaseQty()">+</button>
             </div>
 
-            <button class="add-to-cart-btn">Add to Cart — {{ (p.price ?? 0) * quantity() }} EGP</button>
+            <button class="add-to-cart-btn">Add to Cart - {{ (p.price ?? 0) * quantity() }} EGP</button>
           </div>
 
           <div class="meta">
@@ -75,8 +75,11 @@
               <i class="bi bi-arrow-repeat"></i>
               <span>Easy 14-day returns</span>
             </div>
+          </div>
 
         </div>
+
+      </div>
 
     </div>
 
