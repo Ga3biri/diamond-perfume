@@ -1,55 +1,108 @@
 <aside class="filters-sidebar">
 
+  <!-- Category Filter -->
   <div class="filter-section">
-    <h4>Category</h4>
+    <h4 class="filter-title">
+      <i class="bi bi-grid"></i>
+      Category
+    </h4>
     <div class="filter-options">
       @for(cat of categories; track cat){
-        <label class="filter-label">
+        <label class="filter-chip" [class.active]="selectedCategories().includes(cat)">
           <input
             type="checkbox"
             [checked]="selectedCategories().includes(cat)"
             (change)="toggleCategory(cat)">
-          <span>{{ cat }}</span>
+          <span class="chip-label">
+            <i class="bi bi-check2"></i>
+            {{ cat }}
+          </span>
         </label>
       }
     </div>
+  </div>
 
-  </div>  
+  <!-- Price Range Filter -->
   <div class="filter-section">
-    <h4>Price Range</h4>
+    <h4 class="filter-title">
+      <i class="bi bi-currency-dollar"></i>
+      Price Range
+    </h4>
+    <div class="price-range-display">
+      <div class="price-box">
+        <span class="price-label">Min</span>
+        <span class="price-value">{{ minPrice() }} EGP</span>
+      </div>
+      <div class="price-separator">—</div>
+      <div class="price-box">
+        <span class="price-label">Max</span>
+        <span class="price-value">{{ maxPrice() }} EGP</span>
+      </div>
+    </div>
     <div class="price-inputs">
-      <input
-        type="number"
-        placeholder="Min"
-        class="price-input"
-        [value]="minPrice()"
-        (input)="minPrice.set(+$any($event.target).value)">
-      <span>—</span>
-      <input
-        type="number"
-        placeholder="Max"
-        class="price-input"
-        [value]="maxPrice()"
-        (input)="maxPrice.set(+$any($event.target).value)">
+      <div class="input-wrap">
+        <input
+          type="range"
+          min="0"
+          max="10000"
+          step="50"
+          class="price-slider"
+          [value]="minPrice()"
+          (input)="onMinPriceChange(+$any($event.target).value)">
+      </div>
+      <div class="input-wrap">
+        <input
+          type="range"
+          min="0"
+          max="10000"
+          step="50"
+          class="price-slider"
+          [value]="maxPrice()"
+          (input)="onMaxPriceChange(+$any($event.target).value)">
+      </div>
+      <div class="price-inputs-fields">
+        <input
+          type="number"
+          placeholder="Min"
+          class="price-input"
+          [value]="minPrice()"
+          (input)="onMinPriceChange(+$any($event.target).value)">
+        <span class="separator">to</span>
+        <input
+          type="number"
+          placeholder="Max"
+          class="price-input"
+          [value]="maxPrice()"
+          (input)="onMaxPriceChange(+$any($event.target).value)">
+      </div>
     </div>
   </div>
 
+  <!-- Sort By Filter -->
   <div class="filter-section">
-    <h4>Sort By</h4>
-    <select
-      class="sort-select"
-      [value]="sortBy()"
-      (change)="sortBy.set($any($event.target).value)">
-      <option value="default">Default</option>
-      <option value="price-asc">Price: Low to High</option>
-      <option value="price-desc">Price: High to Low</option>
-      <option value="rating">Top Rated</option>
-      <option value="name">Name A–Z</option>
-    </select>
+    <h4 class="filter-title">
+      <i class="bi bi-sort-down"></i>
+      Sort By
+    </h4>
+    <div class="sort-wrap">
+      <select
+        class="sort-select"
+        [value]="sortBy()"
+        (change)="onSortChange($any($event.target).value)">
+        <option value="default">Default</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+        <option value="name">Name A–Z</option>
+      </select>
+      <i class="bi bi-chevron-down select-arrow"></i>
+    </div>
   </div>
 
+  <!-- Clear Filters -->
   <button class="clear-btn" (click)="clearFilters()">
-    Clear Filters
+    <i class="bi bi-x-circle"></i>
+    Clear All Filters
   </button>
 
 </aside>

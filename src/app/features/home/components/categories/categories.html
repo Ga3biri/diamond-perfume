@@ -1,4 +1,4 @@
-<section class="categories">
+<section class="categories" id="categories">
 
     <div class="container-custom">
 
@@ -8,7 +8,7 @@
 
                 <div class="col-lg-4">
 
-                    <div class="category-card">
+                    <a class="category-card" [routerLink]="['/categories']" [queryParams]="{category: category.name}">
 
                         <img
                             [src]="category.image"
@@ -18,15 +18,9 @@
 
                             <h3>{{category.name}}</h3>
 
-                            <button>
-
-                                Shop Now
-
-                            </button>
-
                         </div>
 
-                    </div>
+                    </a>
 
                 </div>
 

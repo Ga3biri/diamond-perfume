@@ -1,47 +1,42 @@
-<section class="faq">
+<section class="faq" id="faq">
 
     <div class="container-custom">
 
-        <h2>
+        <h2 class="section-title">FAQ</h2>
 
-            Frequently Asked Questions
+        <div class="faq-list">
 
-        </h2>
+            @for(item of items(); track $index){
 
-        @for(item of items();track item.question){
+                <div
+                    class="faq-item"
+                    [class.opened]="opened()===$index">
 
-            <div class="faq-item">
+                    <button
+                        class="faq-question"
+                        (click)="toggle($index)">
 
-                <button
-                    (click)="toggle($index)">
+                        <span>{{item.question}}</span>
 
-                    <span>
+                        <i class="bi bi-chevron-down"></i>
 
-                        {{item.question}}
+                    </button>
 
-                    </span>
+                    @if(opened()===$index){
 
-                    <i
-                        class="bi"
-                        [class.bi-plus]="opened()!==$index"
-                        [class.bi-dash]="opened()===$index">
-                    </i>
+                        <div class="faq-answer">
 
-                </button>
+                            <p>{{item.answer}}</p>
 
-                @if(opened()===$index){
+                        </div>
 
-                    <div class="answer">
+                    }
 
-                        {{item.answer}}
+                </div>
 
-                    </div>
+            }
 
-                }
-
-            </div>
-
-        }
+        </div>
 
     </div>
 

@@ -1,1 +1,35 @@
 <div class="shop-product-card">
+  @if(product().discount){
+    <span class="discount-badge">-{{ product().discount }}%</span>
+  }
+
+  <a [routerLink]="['/product', product().id]" class="image-wrap">
+    <img [src]="product().image" [alt]="product().name">
+  </a>
+
+  <div class="card-body">
+    <small class="brand">{{ product().brand }}</small>
+    <h3 class="product-name">
+      <a [routerLink]="['/product', product().id]">{{ product().name }}</a>
+    </h3>
+
+    <div class="rating-row">
+      @for(star of [1,2,3,4,5]; track star){
+        <i class="bi"
+           [class.bi-star-fill]="star <= Math.round(product().rating ?? 0)"
+           [class.bi-star]="star > Math.round(product().rating ?? 0)"></i>
+      }
+      <span class="reviews-count">({{ product().reviews }})</span>
+    </div>
+
+    <div class="pricing">
+      <span class="current-price">{{ product().price }} EGP</span>
+      @if(product().oldPrice){
+        <span class="old-price">{{ product().oldPrice }} EGP</span>
+      }
+    </div>
+
+    <button class="add-to-cart-btn" (click)="addToCart()">
+      <i class="bi bi-bag-plus"></i> Add to Cart
+    </button>
+  </div>

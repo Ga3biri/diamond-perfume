@@ -1,4 +1,4 @@
-import { MenuItem } from "../../app/shared/models/menu-item.model";
+import { MenuItem } from '../../app/shared/models/menu-item.model';
 
 export const MENU: MenuItem[] = [
   {
@@ -6,28 +6,28 @@ export const MENU: MenuItem[] = [
     link: '/'
   },
   {
-    title: 'Shop',
-    link: '/shop',
+    title: 'Categories',
+    link: '/categories',
     children: [
       {
         title: 'Men',
-        link: '/shop/men'
+        link: '/categories/men'
       },
       {
         title: 'Women',
-        link: '/shop/women'
+        link: '/categories/women'
       },
       {
         title: 'Unisex',
-        link: '/shop/unisex'
+        link: '/categories/unisex'
       },
       {
         title: 'Niche',
-        link: '/shop/niche'
+        link: '/categories/niche'
       },
       {
         title: 'Gift Sets',
-        link: '/shop/gift-sets'
+        link: '/categories/gift-sets'
       }
     ]
   },

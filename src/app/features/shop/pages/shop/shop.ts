@@ -1,4 +1,5 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FiltersSidebar } from '../../components/filters-sidebar/filters-sidebar';
 import { ProductsGrid } from '../../components/products-grid/products-grid';
 import { PRODUCTS } from '../../../../../core/constants/products';
@@ -9,14 +10,30 @@ import { PRODUCTS } from '../../../../../core/constants/products';
   templateUrl: './shop.html',
   styleUrl: './shop.scss',
 })
-export class Shop {
+export class Shop implements OnInit {
   allProducts = PRODUCTS;
   showMobileFilters = signal(false);
 
   selectedCategories = signal<string[]>([]);
+  selectedBrand = signal<string | null>(null);
   minPrice = signal(0);
   maxPrice = signal(10000);
   sortBy = signal('default');
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      const category = params['category'];
+      if (category) {
+        this.selectedCategories.set([category]);
+      }
+      const brand = params['brand'];
+      if (brand) {
+        this.selectedBrand.set(brand);
+      }
+    });
+  }
 
   filteredProducts = computed(() => {
     let filtered = [...this.allProducts];
@@ -24,6 +41,11 @@ export class Shop {
     const cats = this.selectedCategories();
     if (cats.length > 0) {
       filtered = filtered.filter(p => cats.includes(p.category ?? ''));
+    }
+
+    const brand = this.selectedBrand();
+    if (brand) {
+      filtered = filtered.filter(p => p.brand === brand);
     }
 
     filtered = filtered.filter(

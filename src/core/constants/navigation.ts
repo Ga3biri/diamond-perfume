@@ -9,8 +9,8 @@ export const NAVIGATION: NavigationItem[] = [
     link: '/'
   },
   {
-    title: 'Shop',
-    link: '/shop'
+    title: 'Categories',
+    link: '/categories'
   },
   {
     title: 'About',

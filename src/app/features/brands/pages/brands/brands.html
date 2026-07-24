@@ -1,0 +1,21 @@
+<section class="brands-page">
+  <div class="page-header">
+    <div class="container-custom">
+      <h1>Our Brands</h1>
+      <p>Explore premium fragrance brands we carry</p>
+    </div>
+  </div>
+
+  <div class="container-custom">
+    <div class="brands-grid">
+      @for(brand of brands(); track brand.name){
+        <a [routerLink]="['/categories']" [queryParams]="{brand: brand.name}" class="brand-card-link">
+          <div class="brand-card">
+            <img [src]="brand.image" [alt]="brand.name">
+            <h3>{{brand.name}}</h3>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

@@ -18,7 +18,7 @@
                 class="logo">
 
                 <img
-                    src="images/logo.svg"
+                    src="images/alfy_logo.jpeg"
                     alt="EL-ALFY Perfumes">
 
             </a>
@@ -81,7 +81,7 @@
 
             </button>
 
-            <button
+<button
                 class="icon-btn"
                 (click)="layout.openWishlist()">
 
@@ -102,19 +102,21 @@
 
             </button>
 
-            <button
+<button
                 class="icon-btn"
                 (click)="layout.openCart()">
 
                 <i class="bi bi-bag"></i>
 
+                @if(cartService.count()){
                 <span class="badge">
 
-                    0
+                    {{ cartService.count() }}
 
                 </span>
+                }
 
-            </button>
+</button>
 
         </div>
 

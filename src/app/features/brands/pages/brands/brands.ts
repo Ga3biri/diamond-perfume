@@ -3,13 +3,11 @@ import { RouterLink } from '@angular/router';
 import { BRANDS } from '../../../../../core/constants/brands';
 
 @Component({
-  selector: 'app-brands',
+  selector: 'app-brands-page',
   imports: [RouterLink],
   templateUrl: './brands.html',
   styleUrl: './brands.scss'
 })
-export class Brands {
-
+export class BrandsPage {
   brands = signal(BRANDS);
-
 }

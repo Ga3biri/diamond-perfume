@@ -1,6 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
 import { Product } from '../../../shared/models/product.model';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../../core/services/cart.service';
+import { LayoutService } from '../../../core/services/layout';
 
 
 @Component({
@@ -16,5 +18,12 @@ import { RouterLink } from '@angular/router';
 export class ProductCard {
 
   product = input.required<Product>();
+  private cartService = inject(CartService);
+  private layout = inject(LayoutService);
+
+  addToCart() {
+    this.cartService.addItem(this.product(), 1);
+    this.layout.openCart();
+  }
 
 }

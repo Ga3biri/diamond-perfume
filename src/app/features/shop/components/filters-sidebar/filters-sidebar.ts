@@ -41,6 +41,25 @@ export class FiltersSidebar {
     this.emitFilters();
   }
 
+  onMinPriceChange(value: number) {
+    if (value <= this.maxPrice()) {
+      this.minPrice.set(value);
+      this.emitFilters();
+    }
+  }
+
+  onMaxPriceChange(value: number) {
+    if (value >= this.minPrice()) {
+      this.maxPrice.set(value);
+      this.emitFilters();
+    }
+  }
+
+  onSortChange(value: string) {
+    this.sortBy.set(value);
+    this.emitFilters();
+  }
+
   clearFilters() {
     this.selectedCategories.set([]);
     this.minPrice.set(0);

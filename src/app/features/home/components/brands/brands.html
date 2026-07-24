@@ -1,22 +1,24 @@
-<section class="brands">
+<section class="brands" id="brands">
 
     <div class="container-custom">
 
-        <h2>
+        <h2 class="section-title">Our Brands</h2>
 
-            Shop By Brand
+        <div class="row g-4">
 
-        </h2>
+            @for(brand of brands(); track brand.name){
 
-        <div class="brands-grid">
+                <div class="col-md-3 col-6">
 
-            @for(brand of brands();track brand.id){
+                    <a [routerLink]="['/categories']" [queryParams]="{brand: brand.name}" class="brand-card-link">
 
-                <div class="brand-card">
+                        <div class="brand-card">
 
-                    <img
-                        [src]="brand.image"
-                        [alt]="brand.name">
+                            <img [src]="brand.image" [alt]="brand.name">
+
+                        </div>
+
+                    </a>
 
                 </div>
 
@@ -25,5 +27,4 @@
         </div>
 
     </div>
-
 </section>
